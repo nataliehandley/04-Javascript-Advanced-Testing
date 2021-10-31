@@ -11,7 +11,7 @@
 
 
 
-class Translator {
+class TranslatorEnglishToMorse {
     constructor(wordToTranslate) {
         this.wordToTranslate = wordToTranslate;
         
@@ -80,12 +80,12 @@ class Translator {
   
     
     getMorseLetter() {
-        return translator1.breakdownWordToTranslate().join(" ");
+        return translator.breakdownWordToTranslate().join(" ");
   
 }
 }
 
-const translator1 = new Translator("goodbye");
-console.log(translator1.getMorseLetter());
+const translator = new TranslatorEnglishToMorse("goodbye");
+console.log(translator.getMorseLetter());
 
 
