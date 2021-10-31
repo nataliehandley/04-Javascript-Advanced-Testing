@@ -85,7 +85,7 @@ class TranslatorEnglishToMorse {
 }
 }
 
-const translator = new TranslatorEnglishToMorse("hello");
+const translator = new TranslatorEnglishToMorse("peter");
 console.log(translator.getMorseLetter());
 
 class TranslatorMorseToEnglish extends TranslatorEnglishToMorse {
