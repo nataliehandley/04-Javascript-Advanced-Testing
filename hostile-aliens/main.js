@@ -1,68 +1,70 @@
 const buttonGame = document.getElementById("button");
+const currentScore = document.querySelector(".score-mother");
 
 
 
 function buttonClicked () {
-    buttonGame.addEventListener("click",(event) => {
-        let randomNumber = ((Math.floor(Math.random() * 14)) + 1);
-        if (randomNumber === 14) {
-            console.log("Mothership");
-            console.log(motherShip.reduceScore());
-            console.log(motherShip.endGame());
-        } else if (randomNumber === 1) { 
-            console.log("Defence ship 1");
-            console.log(defenceShip1.reduceScore());
-            console.log(defenceShip1.shipDestroyed());
-        } else if (randomNumber === 2) {
-            console.log("Defence ship 2");
-            console.log(defenceShip2.reduceScore());
-            console.log(defenceShip2.shipDestroyed());
-        } else if (randomNumber === 3) {
-            console.log("Defence ship 3");
-            console.log(defenceShip3.reduceScore());
-            console.log(defenceShip3.shipDestroyed());
-        } else if (randomNumber === 4) {
-            console.log("Defence ship 4");
-            console.log(defenceShip4.reduceScore());
-            console.log(defenceShip4.shipDestroyed());
-        } else if (randomNumber === 5) {
-            console.log("Defence ship 5");
-            console.log(defenceShip5.reduceScore());
-            console.log(defenceShip5.shipDestroyed());
-        } else if (randomNumber === 6) {
-            console.log("Attack ship 1");
-            console.log(attackShip1.reduceScore());
-            console.log(attackShip1.shipDestroyed());
-        } else if (randomNumber === 7) {
-            console.log("Attack ship 2");
-            console.log(attackShip2.reduceScore());
-            console.log(attackShip2.shipDestroyed());
-        } else if (randomNumber === 8) {
-            console.log("Attack ship 3");
-            console.log(attackShip3.reduceScore());
-            console.log(attackShip3.shipDestroyed());
-        } else if (randomNumber === 9) {
-            console.log("Attack ship 4");
-            console.log(attackShip4.reduceScore());
-            console.log(attackShip4.shipDestroyed());
-        } else if (randomNumber === 10) {
-            console.log("Attack ship 5");
-            console.log(attackShip5.reduceScore());
-            console.log(attackShip5.shipDestroyed());
-        } else if (randomNumber === 11) {
-            console.log("Attack ship 6");
-            console.log(attackShip6.reduceScore());
-            console.log(attackShip6.shipDestroyed());
-        } else if (randomNumber === 12) {
-            console.log("Attack ship 7");
-            console.log(attackShip7.reduceScore());
-            console.log(attackShip7.shipDestroyed());
-        } else if (randomNumber === 13) {
-            console.log("Attack ship 8");
-            console.log(attackShip8.reduceScore());
-            console.log(attackShip8.shipDestroyed());
-        }
-    })
+    buttonGame.addEventListener("click",() => {
+            let randomNumber = ((Math.floor(Math.random() * 14)) + 1);
+            if (randomNumber === 14) {
+                console.log("Mothership");
+                console.log(motherShip.reduceScore());
+                console.log(motherShip.showScore());
+                console.log(motherShip.endGame());
+            } else if (randomNumber === 1) {
+                console.log("Defence ship 1");
+                console.log(defenceShip1.reduceScore());
+                console.log(defenceShip1.shipDestroyed());
+            } else if (randomNumber === 2) {
+                console.log("Defence ship 2");
+                console.log(defenceShip2.reduceScore());
+                console.log(defenceShip2.shipDestroyed());
+            } else if (randomNumber === 3) {
+                console.log("Defence ship 3");
+                console.log(defenceShip3.reduceScore());
+                console.log(defenceShip3.shipDestroyed());
+            } else if (randomNumber === 4) {
+                console.log("Defence ship 4");
+                console.log(defenceShip4.reduceScore());
+                console.log(defenceShip4.shipDestroyed());
+            } else if (randomNumber === 5) {
+                console.log("Defence ship 5");
+                console.log(defenceShip5.reduceScore());
+                console.log(defenceShip5.shipDestroyed());
+            } else if (randomNumber === 6) {
+                console.log("Attack ship 1");
+                console.log(attackShip1.reduceScore());
+                console.log(attackShip1.shipDestroyed());
+            } else if (randomNumber === 7) {
+                console.log("Attack ship 2");
+                console.log(attackShip2.reduceScore());
+                console.log(attackShip2.shipDestroyed());
+            } else if (randomNumber === 8) {
+                console.log("Attack ship 3");
+                console.log(attackShip3.reduceScore());
+                console.log(attackShip3.shipDestroyed());
+            } else if (randomNumber === 9) {
+                console.log("Attack ship 4");
+                console.log(attackShip4.reduceScore());
+                console.log(attackShip4.shipDestroyed());
+            } else if (randomNumber === 10) {
+                console.log("Attack ship 5");
+                console.log(attackShip5.reduceScore());
+                console.log(attackShip5.shipDestroyed());
+            } else if (randomNumber === 11) {
+                console.log("Attack ship 6");
+                console.log(attackShip6.reduceScore());
+                console.log(attackShip6.shipDestroyed());
+            } else if (randomNumber === 12) {
+                console.log("Attack ship 7");
+                console.log(attackShip7.reduceScore());
+                console.log(attackShip7.shipDestroyed());
+            } else if (randomNumber === 13) {
+                console.log("Attack ship 8");
+                console.log(attackShip8.reduceScore());
+                console.log(attackShip8.shipDestroyed());
+            }
+        })
 
 }
 
@@ -79,12 +81,13 @@ class Alien {
         if(this.score <= 0) {
             console.log("SHIP DESTROYED");
 
-        
+        }
     }
+    
 }
     
     
-}
+
 
 class DefenceShip extends Alien {
     constructor(score, minusPoints, name) {
@@ -113,8 +116,13 @@ class MotherShip extends Alien {
             alert("GAME OVER");
         }
     }
+    showScore() {
+            currentScore.innerHTML = this.score;
+         }
+    
+    }
  
-}
+
 
 const motherShip = new MotherShip ( 100, 9);
 
