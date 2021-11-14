@@ -1,6 +1,5 @@
 const buttonGame = document.getElementById("button");
-const currentScore = document.querySelector(".score-mother");
-
+const scoreContainer = document.querySelector(".score"); 
 
 
 function buttonClicked () {
@@ -14,22 +13,28 @@ function buttonClicked () {
             } else if (randomNumber === 1) {
                 console.log("Defence ship 1");
                 console.log(defenceShip1.reduceScore());
+                scoreContainer.innerHTML = defenceShip1.showScore();
                 console.log(defenceShip1.shipDestroyed());
+              
             } else if (randomNumber === 2) {
                 console.log("Defence ship 2");
                 console.log(defenceShip2.reduceScore());
+                console.log(defenceShip2.showScore());
                 console.log(defenceShip2.shipDestroyed());
             } else if (randomNumber === 3) {
                 console.log("Defence ship 3");
                 console.log(defenceShip3.reduceScore());
+                console.log(defenceShip3.showScore());
                 console.log(defenceShip3.shipDestroyed());
             } else if (randomNumber === 4) {
                 console.log("Defence ship 4");
                 console.log(defenceShip4.reduceScore());
+                console.log(defenceShip4.showScore());
                 console.log(defenceShip4.shipDestroyed());
             } else if (randomNumber === 5) {
                 console.log("Defence ship 5");
                 console.log(defenceShip5.reduceScore());
+                console.log(defenceShip5.showScore());
                 console.log(defenceShip5.shipDestroyed());
             } else if (randomNumber === 6) {
                 console.log("Attack ship 1");
@@ -83,10 +88,15 @@ class Alien {
 
         }
     }
-    
+    showScore() {
+        const scoreHTML = `
+            <h2>${this.score}</h2>
+        `;
+            return scoreHTML;
+        };
 }
     
-    
+
 
 
 class DefenceShip extends Alien {
@@ -95,8 +105,9 @@ class DefenceShip extends Alien {
             this.name = name; 
     }
    
-
 }
+
+
 
 class AttackShip extends Alien {
     constructor(score, minusPoints, name) {
@@ -116,9 +127,9 @@ class MotherShip extends Alien {
             alert("GAME OVER");
         }
     }
-    showScore() {
-            currentScore.innerHTML = this.score;
-         }
+    // showScore() {
+    //         currentScoreMother.innerHTML = this.score;
+    //      }
     
     }
  
@@ -140,6 +151,7 @@ const attackShip5 = new AttackShip (45, 12, "attackShip5");
 const attackShip6 = new AttackShip (45, 12, "attackShip6");
 const attackShip7 = new AttackShip (45, 12, "attackShip7");
 const attackShip8 = new AttackShip (45, 12, "attackShip8");
+
 
 
 
