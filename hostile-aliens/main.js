@@ -29,100 +29,79 @@ const buttonClicked = () => {
                 console.log("Defence ship 1");
                 console.log(defenceShip1.reduceScore());
                 scoreContainer1.innerHTML = defenceShip1.showScore();
-                console.log(defenceShip1.shipDestroyed());
             } else if (randomNumber === 2) {
                 console.log("Defence ship 2");
                 console.log(defenceShip2.reduceScore());
                 scoreContainer2.innerHTML = defenceShip2.showScore();
-                console.log(defenceShip2.shipDestroyed());
             } else if (randomNumber === 3) {
                 console.log("Defence ship 3");
                 console.log(defenceShip3.reduceScore());
                 scoreContainer3.innerHTML = defenceShip3.showScore();
-                console.log(defenceShip3.shipDestroyed());
             } else if (randomNumber === 4) {
                 console.log("Defence ship 4");
                 console.log(defenceShip4.reduceScore());
                 scoreContainer4.innerHTML = defenceShip4.showScore();
-                console.log(defenceShip4.shipDestroyed());
             } else if (randomNumber === 5) {
                 console.log("Defence ship 5");
                 console.log(defenceShip5.reduceScore());
                 scoreContainer5.innerHTML = defenceShip5.showScore();
-                console.log(defenceShip5.shipDestroyed());
             } else if (randomNumber === 6) {
                 console.log("Attack ship 1");
                 console.log(attackShip1.reduceScore());
                 scoreContainer6.innerHTML = attackShip1.showScore();
-                console.log(attackShip1.shipDestroyed());
             } else if (randomNumber === 7) {
                 console.log("Attack ship 2");
                 console.log(attackShip2.reduceScore());
                 scoreContainer7.innerHTML = attackShip2.showScore();
-                console.log(attackShip2.shipDestroyed());
             } else if (randomNumber === 8) {
                 console.log("Attack ship 3");
                 console.log(attackShip3.reduceScore());
                 scoreContainer8.innerHTML = attackShip3.showScore();
-                console.log(attackShip3.shipDestroyed());
             } else if (randomNumber === 9) {
                 console.log("Attack ship 4");
                 console.log(attackShip4.reduceScore());
                 scoreContainer9.innerHTML = attackShip4.showScore();
-                console.log(attackShip4.shipDestroyed());
             } else if (randomNumber === 10) {
                 console.log("Attack ship 5");
                 console.log(attackShip5.reduceScore());
                 scoreContainer10.innerHTML = attackShip5.showScore();
-                console.log(attackShip5.shipDestroyed());
             } else if (randomNumber === 11) {
                 console.log("Attack ship 6");
                 console.log(attackShip6.reduceScore());
                 scoreContainer11.innerHTML = attackShip6.showScore();
-                console.log(attackShip6.shipDestroyed());
             } else if (randomNumber === 12) {
                 console.log("Attack ship 7");
                 console.log(attackShip7.reduceScore());
                 scoreContainer12.innerHTML = attackShip7.showScore();
-                console.log(attackShip7.shipDestroyed());
             } else if (randomNumber === 13) {
                 console.log("Attack ship 8");
                 console.log(attackShip8.reduceScore());
                 scoreContainer13.innerHTML = attackShip8.showScore();
-                console.log(attackShip8.shipDestroyed());
             }
         }
 
 
 
 class Alien {
-    constructor(score, minusPoints, endScore) {
+    constructor(score, minusPoints) {
         this.score = score;
         this.minusPoints = minusPoints;
-        this.endScore = 0
     }
     reduceScore() {
-        if(this.score >= 0) {
+        if(this.score >= 1) {
         return (this.score -= this.minusPoints)
         
       } else {
-        this.score = 0;
+        return this.score = 0
+
      }
 }
-   
     showScore() {
         const scoreHTML = `
             <h2>${this.score}</h2>
         `;
             return scoreHTML;
         }
-     shipDestroyed() {
-            if(this.score <= 0) {
-               this.endScore = this.score;
-    
-    
-            }
-        }     
 }
     
 
@@ -154,6 +133,7 @@ class MotherShip extends Alien {
     endGame() {
         if(this.score <= 0) {
             alert("GAME OVER");
+            location.reload(); //Googled this
         }
     }
     
@@ -180,15 +160,3 @@ const attackShip8 = new AttackShip (45, 12, "attackShip8");
 
 
 buttonGame.addEventListener("click",buttonClicked)
-
-
-
-
-
-
-
-
-
-
-
-//get rid of undefined on shipsDestroyed() console.log
