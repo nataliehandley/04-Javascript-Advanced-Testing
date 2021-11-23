@@ -1,13 +1,13 @@
-// let inputValue;
-// function getWordToTranslate() {
-//     const inputEl = document.querySelector(".input-box");
-//     inputEl.addEventListener("input", (event) => {
-//         inputValue = event.target.value;
-//         console.log(inputValue);
-        
-//     })
-// }
 
+function getWordToTranslate() {
+    const buttonEnglish = document.querySelector("#english");
+    buttonEnglish.addEventListener("click", () => {
+        let inputEnglish = document.querySelector(".input-box").value;
+        console.log(inputEnglish);
+        
+    })
+}
+getWordToTranslate()
 
 
 
@@ -21,57 +21,57 @@ class TranslatorEnglishToMorse {
         let brokenDownWord = ((this.wordToTranslate).toLowerCase()).split("");
         let morseArray = brokenDownWord.map((letter) => {
             if(letter === "a") {
-                return "•-";
+                return ".-";
             } else if(letter === "b") {
-                return "-•••"
+                return "-..."
             } else if(letter === "c") {
-                return "-•-•"
+                return "-.-."
             } else if(letter === "d") {
-                return "-••"
+                return "-.."
             } else if(letter === "e") {
-                return "•"
+                return "."
             } else if(letter === "f") {
-                return "••-•"
+                return "..-."
             } else if(letter === "g") {
-                return "--•"
+                return "--."
             } else if(letter === "h") {
-                return "••••"
+                return "...."
             } else if(letter === "i") {
-                return "••"
+                return ".."
             } else if(letter === "j") {
-                return "•---"
+                return ".---"
             } else if(letter === "k") {
-                return "-•-"
+                return "-.-"
             } else if(letter === "l") {
-                return "•-••"
+                return ".-.."
             } else if(letter === "m") {
                 return "--"
             } else if(letter === "n") {
-                return "-•"
+                return "-."
             } else if(letter === "o") {
                 return "---"
             } else if(letter === "p") {
-                return "•--•"
+                return ".--."
             } else if(letter === "q") {
-                return "--•-"
+                return "--.-"
             } else if(letter === "r") {
-                return "•-•"
+                return ".-."
             } else if(letter === "s") {
-                return "•••"
+                return "..."
             } else if(letter === "t") {
                 return "-"
             } else if(letter === "u") {
-                return "••-"
+                return "..-"
             } else if(letter === "v") {
-                return "•••-"
+                return "...-"
             } else if(letter === "w") {
-                return "•--"
+                return ".--"
             } else if(letter === "x") {
-                return "-••-"
+                return "-..-"
             } else if(letter === "y") {
-                return "-•--"
+                return "-.--"
             } else if(letter === "z") {
-                return "--••"
+                return "--.."
             }
             
     })
@@ -85,81 +85,81 @@ class TranslatorEnglishToMorse {
 }
 }
 
-const translator = new TranslatorEnglishToMorse("peter");
+const translator = new TranslatorEnglishToMorse("natalie");
 console.log(translator.getMorseLetter());
 
-class TranslatorMorseToEnglish extends TranslatorEnglishToMorse {
-    constructor(wordToTranslate, MorseWordToTranslate) {
-        super(wordToTranslate) 
-            this.MorseWordToTranslate = MorseWordToTranslate;
+// class TranslatorMorseToEnglish extends TranslatorEnglishToMorse {
+//     constructor(wordToTranslate, MorseWordToTranslate) {
+//         super(wordToTranslate) 
+//             this.MorseWordToTranslate = MorseWordToTranslate;
         
-    }
-    splitMorseCode () {
-        let morseWord = translator.getMorseLetter().split(" ");
-        let englishArray = morseWord.map((symbol) => {
-            if(symbol === "•-") {
-                return "a";
-            } else if(symbol === "-•••") {
-                return "b"
-            } else if(symbol === "-•-•") {
-                return "c"
-            } else if(symbol === "-••") {
-                return "d"
-            } else if(symbol === "•") {
-                return "e"
-            } else if(symbol === "••-•") {
-                return "f"
-            } else if(symbol === "--•") {
-                return "g"
-            } else if(symbol === "••••") {
-                return "h"
-            } else if(symbol === "••") {
-                return "i"
-            } else if(symbol === "•---") {
-                return "j"
-            } else if(symbol === "-•-") {
-                return "k"
-            } else if(symbol === "•-••") {
-                return "l"
-            } else if(symbol === "--") {
-                return "m"
-            } else if(symbol === "-•") {
-                return "n"
-            } else if(symbol === "---") {
-                return "o"
-            } else if(symbol === "•--•") {
-                return "p"
-            } else if(symbol === "--•-") {
-                return "q"
-            } else if(symbol === "•-•") {
-                return "r"
-            } else if(symbol === "•••") {
-                return "s"
-            } else if(symbol === "-") {
-                return "t"
-            } else if(symbol === "••-") {
-                return "u"
-            } else if(symbol === "•••-") {
-                return "v"
-            } else if(symbol === "•--") {
-                return "w"
-            } else if(symbol === "-••-") {
-                return "x"
-            } else if(symbol === "-•--") {
-                return "y"
-            } else if(symbol === "--••") {
-                return "z"
-            }
+//     }
+//     splitMorseCode () {
+//         let morseWord = translator.getMorseLetter().split(" ");
+//         let englishArray = morseWord.map((symbol) => {
+//             if(symbol === ".-") {
+//                 return "a";
+//             } else if(symbol === "-...") {
+//                 return "b"
+//             } else if(symbol === "-.-.") {
+//                 return "c"
+//             } else if(symbol === "-..") {
+//                 return "d"
+//             } else if(symbol === ".") {
+//                 return "e"
+//             } else if(symbol === "..-".) {
+//                 return "f"
+//             } else if(symbol === "--.") {
+//                 return "g"
+//             } else if(symbol === "....") {
+//                 return "h"
+//             } else if(symbol === "..") {
+//                 return "i"
+//             } else if(symbol === ".---") {
+//                 return "j"
+//             } else if(symbol === "-.-") {
+//                 return "k"
+//             } else if(symbol === ".-..") {
+//                 return "l"
+//             } else if(symbol === "--") {
+//                 return "m"
+//             } else if(symbol === "-.") {
+//                 return "n"
+//             } else if(symbol === "---") {
+//                 return "o"
+//             } else if(symbol === ".--.") {
+//                 return "p"
+//             } else if(symbol === "--.-") {
+//                 return "q"
+//             } else if(symbol === ".-.") {
+//                 return "r"
+//             } else if(symbol === "...") {
+//                 return "s"
+//             } else if(symbol === "-") {
+//                 return "t"
+//             } else if(symbol === "..-") {
+//                 return "u"
+//             } else if(symbol === "...-") {
+//                 return "v"
+//             } else if(symbol === ".--") {
+//                 return "w"
+//             } else if(symbol === "-..-") {
+//                 return "x"
+//             } else if(symbol === "-.--") {
+//                 return "y"
+//             } else if(symbol === "--..") {
+//                 return "z"
+//             }
             
-    })
-    return englishArray;
+//     })
+//     return englishArray;
 
-    }
-    getEnglishWord() {
-        return morseTranslator.splitMorseCode().join("");
+//     }
+//     getEnglishWord() {
+//         return morseTranslator.splitMorseCode().join("");
   
-}
-}
+// }
+// }
 
-const morseTranslator = new TranslatorMorseToEnglish("--• --- --- -•• -••• -•-- •");
-console.log(morseTranslator.getEnglishWord());
+// const morseTranslator = new TranslatorMorseToEnglish("--• --- --- -•• -••• -•-- •");
+// console.log(morseTranslator.getEnglishWord());

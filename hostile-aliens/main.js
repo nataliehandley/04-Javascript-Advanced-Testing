@@ -15,7 +15,6 @@ const scoreContainer13 = document.querySelector(".score-attack-8");
 const scoreContainer14 = document.querySelector(".score-mother");
 const scoreContainer = document.querySelectorAll(".score");
 
-
 const buttonClicked = () => {
     
             let randomNumber = ((Math.floor(Math.random() * 14)) + 1);
@@ -80,20 +79,16 @@ const buttonClicked = () => {
             }
         }
 
-
-
 class Alien {
     constructor(score, minusPoints) {
         this.score = score;
         this.minusPoints = minusPoints;
     }
     reduceScore() {
-        if(this.score >= 1) {
+        if(this.score > 0) {
         return (this.score -= this.minusPoints)
-        
       } else {
         return this.score = 0
-
      }
 }
     showScore() {
@@ -104,31 +99,23 @@ class Alien {
         }
 }
     
-
-
-
 class DefenceShip extends Alien {
     constructor(score, minusPoints, name) {
         super(score, minusPoints) 
             this.name = name; 
     }
-   
 }
-
-
 
 class AttackShip extends Alien {
     constructor(score, minusPoints, name) {
         super(score, minusPoints) 
             this.name = name; 
     }
- 
 }
 
 class MotherShip extends Alien {
     constructor(score, minusPoints) {
-        super(score, minusPoints) 
-            
+        super(score, minusPoints)      
     }
     endGame() {
         if(this.score <= 0) {
@@ -136,19 +123,14 @@ class MotherShip extends Alien {
             location.reload(); //Googled this
         }
     }
-    
     }
  
-
-
 const motherShip = new MotherShip ( 100, 9);
-
 const defenceShip1 = new DefenceShip (80, 10, "defenceShip1");
 const defenceShip2 = new DefenceShip (80, 10, "defenceShip2");
 const defenceShip3 = new DefenceShip (80, 10, "defenceShip3");
 const defenceShip4 = new DefenceShip (80, 10, "defenceShip4");
 const defenceShip5 = new DefenceShip (80, 10, "defenceShip5");
-
 const attackShip1 = new AttackShip (45, 12, "attackShip1");
 const attackShip2 = new AttackShip (45, 12, "attackShip2");
 const attackShip3 = new AttackShip (45, 12, "attackShip3");
@@ -157,6 +139,5 @@ const attackShip5 = new AttackShip (45, 12, "attackShip5");
 const attackShip6 = new AttackShip (45, 12, "attackShip6");
 const attackShip7 = new AttackShip (45, 12, "attackShip7");
 const attackShip8 = new AttackShip (45, 12, "attackShip8");
-
 
 buttonGame.addEventListener("click",buttonClicked)

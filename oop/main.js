@@ -135,3 +135,36 @@ class Car extends Vehicle {
 
 const nataliesCar = new Car ("NatalieCar", "Medium", 4,5,5,true, 0);
 console.log(nataliesCar);
+
+class Ferrari extends Car {
+    constructor(roadServiceMonths) {
+        super("Ferrari", "RWD", 4 , 5, 6, false);
+        this.roadServiceMonths = roadServiceMonths;
+    }
+
+accelarate (rate) {
+    let newVelocity =super.getCurrentVelocity() + rate;
+    if (newVelocity == 0) {
+        super.stop();
+        super.changeGear(1);
+    } else if (newVelocity > 0 && newVelocity <= 10 ) {
+        super.changeGear(1);
+    } else if (newVelocity > 10 && newVelocity <= 20 ) {
+        super.changeGear(2);
+    } else if (newVelocity > 20 && newVelocity <= 30 ) {
+        super.changeGear(3);
+    } else {
+        super.changeGear(4);
+    }
+
+    if(newVelocity > 0) {
+        super.changeVelocity(newVelocity, super.getCurrentDirection())
+    }
+}
+}
+
+const ferrari = new Ferrari(7);
+
+ferrari.steer(45);
+ferrari.accelarate(30);
+ferrari.accelarate(20);
