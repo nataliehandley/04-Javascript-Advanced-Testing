@@ -1,25 +1,17 @@
 
-function getWordToTranslate() {
-    const buttonEnglish = document.querySelector("#english");
-    buttonEnglish.addEventListener("click", () => {
-        let inputEnglish = document.querySelector(".input-box").value;
-        console.log(inputEnglish);
-        
-    })
-}
-getWordToTranslate()
-
-
+// ENGLISH TO MORSE TRANSLATOR
 
 class TranslatorEnglishToMorse {
-    constructor(wordToTranslate) {
-        this.wordToTranslate = wordToTranslate;
-        
-       
+    constructor() {
+        this.wordToTranslate = document.querySelector(".input-box").value; 
+        //takes input from input box and stores in this.wordToTranslate
     }
+
     breakdownWordToTranslate () {
         let brokenDownWord = ((this.wordToTranslate).toLowerCase()).split("");
+        // breaks the word to translate down into individual letters in lower case
         let morseArray = brokenDownWord.map((letter) => {
+        //maps over each letter, converts it into a morse code symbol and stores it in an array
             if(letter === "a") {
                 return ".-";
             } else if(letter === "b") {
@@ -73,20 +65,35 @@ class TranslatorEnglishToMorse {
             } else if(letter === "z") {
                 return "--.."
             }
-            
     })
     return morseArray;  
 }
-  
-    
+
     getMorseLetter() {
         return translator.breakdownWordToTranslate().join(" ");
-  
+    // returns the morse code symbols from the array and joins them together in a string
 }
 }
 
-const translator = new TranslatorEnglishToMorse("natalie");
-console.log(translator.getMorseLetter());
+
+//new function to run when button is pressed
+let translator;
+function englishToMorseTranslator() {
+    translator = new TranslatorEnglishToMorse();
+    console.log(translator.getMorseLetter());
+    
+}
+
+//button pressed runs function
+const buttonEnglishToMorse = document.querySelector("#english");
+    buttonEnglishToMorse.addEventListener("click", () => {
+            englishToMorseTranslator();
+            
+        })
+
+        // const showTranslation = document.createElement("h2");
+        // showTranslation.innerHTML = translator.getMorseLetter();
+
 
 // class TranslatorMorseToEnglish extends TranslatorEnglishToMorse {
 //     constructor(wordToTranslate, MorseWordToTranslate) {
