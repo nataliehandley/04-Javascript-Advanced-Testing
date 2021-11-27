@@ -3,7 +3,7 @@
 
 class TranslatorEnglishToMorse {
     constructor() {
-        this.wordToTranslate = document.querySelector(".input-box").value; 
+        this.wordToTranslate = document.querySelector(".english-input-box").value; 
         //takes input from input box and stores in this.wordToTranslate
     }
 
@@ -75,7 +75,6 @@ class TranslatorEnglishToMorse {
 }
 }
 
-
 //new function to run when button is pressed and also to add morse code dynamically to page
 let translator;
 function englishToMorseTranslator() {
@@ -92,83 +91,95 @@ const buttonEnglishToMorse = document.querySelector("#english");
             englishToMorseTranslator();  
         })
 
-       
+
+  //MORSE TO ENGLISH TRANSLATOR      
+
+class TranslatorMorseToEnglish extends TranslatorEnglishToMorse {
+    constructor(wordToTranslate) {
+        super(wordToTranslate) 
+        this.MorseWordToTranslate = document.querySelector(".morse-input-box").value; 
+        //takes input from input box and stores in this.MorseWordToTranslate
 
         
+    }
+    splitMorseCode () {
+        let morseWord = this.MorseWordToTranslate.split(" ");
+        let englishArray = morseWord.map((symbol) => {
+            if(symbol === ".-") {
+                return "a";
+            } else if(symbol === "-...") {
+                return "b"
+            } else if(symbol === "-.-.") {
+                return "c"
+            } else if(symbol === "-..") {
+                return "d"
+            } else if(symbol === ".") {
+                return "e"
+            } else if(symbol === "..-.") {
+                return "f"
+            } else if(symbol === "--.") {
+                return "g"
+            } else if(symbol === "....") {
+                return "h"
+            } else if(symbol === "..") {
+                return "i"
+            } else if(symbol === ".---") {
+                return "j"
+            } else if(symbol === "-.-") {
+                return "k"
+            } else if(symbol === ".-..") {
+                return "l"
+            } else if(symbol === "--") {
+                return "m"
+            } else if(symbol === "-.") {
+                return "n"
+            } else if(symbol === "---") {
+                return "o"
+            } else if(symbol === ".--.") {
+                return "p"
+            } else if(symbol === "--.-") {
+                return "q"
+            } else if(symbol === ".-.") {
+                return "r"
+            } else if(symbol === "...") {
+                return "s"
+            } else if(symbol === "-") {
+                return "t"
+            } else if(symbol === "..-") {
+                return "u"
+            } else if(symbol === "...-") {
+                return "v"
+            } else if(symbol === ".--") {
+                return "w"
+            } else if(symbol === "-..-") {
+                return "x"
+            } else if(symbol === "-.--") {
+                return "y"
+            } else if(symbol === "--..") {
+                return "z"
+            }
+    })
+    return englishArray;
+    }
 
+    getEnglishWord() {
+        return morseTranslator.splitMorseCode().join("");
+}
+}
 
-// class TranslatorMorseToEnglish extends TranslatorEnglishToMorse {
-//     constructor(wordToTranslate, MorseWordToTranslate) {
-//         super(wordToTranslate) 
-//             this.MorseWordToTranslate = MorseWordToTranslate;
-        
-//     }
-//     splitMorseCode () {
-//         let morseWord = translator.getMorseLetter().split(" ");
-//         let englishArray = morseWord.map((symbol) => {
-//             if(symbol === ".-") {
-//                 return "a";
-//             } else if(symbol === "-...") {
-//                 return "b"
-//             } else if(symbol === "-.-.") {
-//                 return "c"
-//             } else if(symbol === "-..") {
-//                 return "d"
-//             } else if(symbol === ".") {
-//                 return "e"
-//             } else if(symbol === "..-".) {
-//                 return "f"
-//             } else if(symbol === "--.") {
-//                 return "g"
-//             } else if(symbol === "....") {
-//                 return "h"
-//             } else if(symbol === "..") {
-//                 return "i"
-//             } else if(symbol === ".---") {
-//                 return "j"
-//             } else if(symbol === "-.-") {
-//                 return "k"
-//             } else if(symbol === ".-..") {
-//                 return "l"
-//             } else if(symbol === "--") {
-//                 return "m"
-//             } else if(symbol === "-.") {
-//                 return "n"
-//             } else if(symbol === "---") {
-//                 return "o"
-//             } else if(symbol === ".--.") {
-//                 return "p"
-//             } else if(symbol === "--.-") {
-//                 return "q"
-//             } else if(symbol === ".-.") {
-//                 return "r"
-//             } else if(symbol === "...") {
-//                 return "s"
-//             } else if(symbol === "-") {
-//                 return "t"
-//             } else if(symbol === "..-") {
-//                 return "u"
-//             } else if(symbol === "...-") {
-//                 return "v"
-//             } else if(symbol === ".--") {
-//                 return "w"
-//             } else if(symbol === "-..-") {
-//                 return "x"
-//             } else if(symbol === "-.--") {
-//                 return "y"
-//             } else if(symbol === "--..") {
-//                 return "z"
-//             }
-            
-//     })
-//     return englishArray;
+//new function to run when button is pressed and also to add morse code dynamically to page
 
-//     }
-//     getEnglishWord() {
-//         return morseTranslator.splitMorseCode().join("");
-  
-// }
-// }
+let morseTranslator;
+function morseToEnglishTranslator() {
+    morseTranslator = new TranslatorMorseToEnglish();
+    console.log(morseTranslator.getEnglishWord()); 
+    const showEnglishTranslation = document.createElement("h3");
+    showEnglishTranslation.innerHTML = morseTranslator.getEnglishWord();
+    document.body.appendChild(showEnglishTranslation);
+}
 
-// const morseTranslator = new TranslatorMorseToEnglish("--• --- --- -•• -••• -•-- •");
-// console.log(morseTranslator.getEnglishWord());
+//button pressed runs function
+const buttonMorseToEnglish = document.querySelector("#morse");
+    buttonMorseToEnglish.addEventListener("click", () => {
+            morseToEnglishTranslator();  
+        })
