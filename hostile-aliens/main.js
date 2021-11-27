@@ -1,3 +1,5 @@
+// set querySelectors for each alien ship and the FIRE button
+
 const buttonGame = document.getElementById("button");
 const scoreContainer1 = document.querySelector(".score-defence-1"); 
 const scoreContainer2 = document.querySelector(".score-defence-2"); 
@@ -15,9 +17,14 @@ const scoreContainer13 = document.querySelector(".score-attack-8");
 const scoreContainer14 = document.querySelector(".score-mother");
 const scoreContainer = document.querySelectorAll(".score");
 
+// function that runs when button is clicked
+
 const buttonClicked = () => {
     
             let randomNumber = ((Math.floor(Math.random() * 14)) + 1);
+
+//randomly chooses a number which is assigned to an alien ship
+//score is reduced by the appropriate number for the alien ship and score is displayed in the alien ship container
 
             if (randomNumber === 14) {
                 console.log("Mothership");
@@ -76,8 +83,10 @@ const buttonClicked = () => {
                 console.log("Attack ship 8");
                 console.log(attackShip8.reduceScore());
                 scoreContainer13.innerHTML = attackShip8.showScore();
-            }
+            }  
         }
+
+ //set up main Alien class
 
 class Alien {
     constructor(score, minusPoints) {
@@ -96,9 +105,11 @@ class Alien {
             <h2>${this.score}</h2>
         `;
             return scoreHTML;
-        }
-}
-    
+        }  
+    }
+
+// set up extends class for Defence ships, Attack ships and Mother ship
+
 class DefenceShip extends Alien {
     constructor(score, minusPoints, name) {
         super(score, minusPoints) 
@@ -123,8 +134,10 @@ class MotherShip extends Alien {
             location.reload(); //Googled this
         }
     }
-    }
+ }
  
+//set up new instances of the class
+
 const motherShip = new MotherShip ( 100, 9);
 const defenceShip1 = new DefenceShip (80, 10, "defenceShip1");
 const defenceShip2 = new DefenceShip (80, 10, "defenceShip2");
@@ -140,4 +153,8 @@ const attackShip6 = new AttackShip (45, 12, "attackShip6");
 const attackShip7 = new AttackShip (45, 12, "attackShip7");
 const attackShip8 = new AttackShip (45, 12, "attackShip8");
 
+//button event listener 
+
 buttonGame.addEventListener("click",buttonClicked)
+
+
