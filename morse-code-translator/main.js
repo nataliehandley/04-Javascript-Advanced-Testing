@@ -76,23 +76,25 @@ class TranslatorEnglishToMorse {
 }
 
 
-//new function to run when button is pressed
+//new function to run when button is pressed and also to add morse code dynamically to page
 let translator;
 function englishToMorseTranslator() {
     translator = new TranslatorEnglishToMorse();
-    console.log(translator.getMorseLetter());
-    
+    console.log(translator.getMorseLetter()); 
+    const showTranslation = document.createElement("h2");
+    showTranslation.innerHTML = translator.getMorseLetter();
+    document.body.appendChild(showTranslation);
 }
 
 //button pressed runs function
 const buttonEnglishToMorse = document.querySelector("#english");
     buttonEnglishToMorse.addEventListener("click", () => {
-            englishToMorseTranslator();
-            
+            englishToMorseTranslator();  
         })
 
-        // const showTranslation = document.createElement("h2");
-        // showTranslation.innerHTML = translator.getMorseLetter();
+       
+
+        
 
 
 // class TranslatorMorseToEnglish extends TranslatorEnglishToMorse {
