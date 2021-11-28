@@ -35,18 +35,22 @@ const buttonClicked = () => {
                 console.log("Defence ship 1");
                 console.log(defenceShip1.reduceScore());
                 scoreContainer1.innerHTML = defenceShip1.showScore();
+                allShipsZero();
             } else if (randomNumber === 2) {
                 console.log("Defence ship 2");
                 console.log(defenceShip2.reduceScore());
                 scoreContainer2.innerHTML = defenceShip2.showScore();
+                allShipsZero();
             } else if (randomNumber === 3) {
                 console.log("Defence ship 3");
                 console.log(defenceShip3.reduceScore());
                 scoreContainer3.innerHTML = defenceShip3.showScore();
+                allShipsZero();
             } else if (randomNumber === 4) {
                 console.log("Defence ship 4");
                 console.log(defenceShip4.reduceScore());
                 scoreContainer4.innerHTML = defenceShip4.showScore();
+                allShipsZero();
             } else if (randomNumber === 5) {
                 console.log("Defence ship 5");
                 console.log(defenceShip5.reduceScore());
@@ -55,22 +59,27 @@ const buttonClicked = () => {
                 console.log("Attack ship 1");
                 console.log(attackShip1.reduceScore());
                 scoreContainer6.innerHTML = attackShip1.showScore();
+                allShipsZero();
             } else if (randomNumber === 7) {
                 console.log("Attack ship 2");
                 console.log(attackShip2.reduceScore());
                 scoreContainer7.innerHTML = attackShip2.showScore();
+                allShipsZero();
             } else if (randomNumber === 8) {
                 console.log("Attack ship 3");
                 console.log(attackShip3.reduceScore());
                 scoreContainer8.innerHTML = attackShip3.showScore();
+                allShipsZero();
             } else if (randomNumber === 9) {
                 console.log("Attack ship 4");
                 console.log(attackShip4.reduceScore());
                 scoreContainer9.innerHTML = attackShip4.showScore();
+                allShipsZero();
             } else if (randomNumber === 10) {
                 console.log("Attack ship 5");
                 console.log(attackShip5.reduceScore());
                 scoreContainer10.innerHTML = attackShip5.showScore();
+                allShipsZero();
             } else if (randomNumber === 11) {
                 console.log("Attack ship 6");
                 console.log(attackShip6.reduceScore());
@@ -79,10 +88,12 @@ const buttonClicked = () => {
                 console.log("Attack ship 7");
                 console.log(attackShip7.reduceScore());
                 scoreContainer12.innerHTML = attackShip7.showScore();
+                allShipsZero();
             } else if (randomNumber === 13) {
                 console.log("Attack ship 8");
                 console.log(attackShip8.reduceScore());
                 scoreContainer13.innerHTML = attackShip8.showScore();
+                allShipsZero();
             }  
         }
 
@@ -105,7 +116,7 @@ class Alien {
             <h2>${this.score}</h2>
         `;
             return scoreHTML;
-        }  
+        }
     }
 
 // set up extends class for Defence ships, Attack ships and Mother ship
@@ -130,7 +141,7 @@ class MotherShip extends Alien {
     }
     endGame() {
         if(this.score <= 0) {
-            alert("GAME OVER");
+            alert("GAME OVER! MOTHER SHIP DESTROYED");
             location.reload(); //Googled this
         }
     }
@@ -157,4 +168,9 @@ const attackShip8 = new AttackShip (45, 12, "attackShip8");
 
 buttonGame.addEventListener("click",buttonClicked)
 
-
+// function to run when all alien ships scores are 0
+const allShipsZero = () => {
+    if ((defenceShip1.score === 0) && (defenceShip2.score === 0) && (defenceShip3.score === 0) && (defenceShip4.score === 0) && (defenceShip5.score === 0) && (attackShip1.score === 0) && (attackShip2.score === 0) && (attackShip3.score === 0) && (attackShip4.score === 0) && (attackShip5.score === 0) && (attackShip6.score === 0) && (attackShip7.score === 0) && (attackShip8.score === 0)) {
+        alert("GAME OVER! ALL ALIEN SHIPS DESTROYED");
+    }
+}
