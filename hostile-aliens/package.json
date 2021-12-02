@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "name": "hostile-aliens",
+  "version": "1.0.0",
+  "description": "This is my Hostile Aliens game written using Object Orientated Programming. I created an \"Alien\" class for all of the alien ships, then extended the class to create \"Defence Ships\", \"Attack Ships\" and the \"Mother Ship\".\r It has been challenging but fun! I have written some simple tests as well to test the game",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Natalie Handley",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.0",
+    "jest": "^27.3.1"
+  },
+  "dependencies": {}
+}

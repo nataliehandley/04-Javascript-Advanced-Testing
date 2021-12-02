@@ -19,7 +19,7 @@ const scoreContainer = document.querySelectorAll(".score");
 
 // function that runs when button is clicked
 
-const buttonClicked = () => {
+ export const buttonClicked = () => {
     
             let randomNumber = ((Math.floor(Math.random() * 14)) + 1);
 
@@ -107,15 +107,19 @@ class Alien {
     reduceScore() {
         if(this.score > 0) {
         return (this.score -= this.minusPoints)
-      } else {
+    } else {
         return this.score = 0
-     }
-}
+
+        // if (this.score <= 0) {
+        //     return (this.score === 0)
+        // } else {
+        //     return this.score -= this.minusPoints
+        // }
+    }
+    }   
     showScore() {
-        const scoreHTML = `
-            <h2>${this.score}</h2>
-        `;
-            return scoreHTML;
+           return `<h2>${this.score}</h2>`
+        ;
         }
     }
 
