@@ -145,8 +145,8 @@ class MotherShip extends Alien {
     }
     endGame() {
         if(this.score <= 0) {
-            alert("GAME OVER! MOTHER SHIP DESTROYED");
-            location.reload(); //Googled this
+            document.querySelector(".modal-content").innerHTML = "GAME OVER! MOTHER SHIP DESTROYED";
+            toggleModal();
         }
     }
  }
@@ -172,9 +172,26 @@ const attackShip8 = new AttackShip (45, 12, "attackShip8");
 
 buttonGame.addEventListener("click",buttonClicked)
 
+// function to toggle between showing the modal when the game ends and closing it, then refreshing the page
+
+const modal = document.querySelector(".modal");
+   
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+        setTimeout(closeModal, 6000);     
+    }
+    
+    function closeModal() {
+        modal.classList.toggle("show-modal");
+        location.reload()
+    }
+
 // function to run when all alien ships scores are 0
+
 const allShipsZero = () => {
     if ((defenceShip1.score === 0) && (defenceShip2.score === 0) && (defenceShip3.score === 0) && (defenceShip4.score === 0) && (defenceShip5.score === 0) && (attackShip1.score === 0) && (attackShip2.score === 0) && (attackShip3.score === 0) && (attackShip4.score === 0) && (attackShip5.score === 0) && (attackShip6.score === 0) && (attackShip7.score === 0) && (attackShip8.score === 0)) {
-        alert("GAME OVER! ALL ALIEN SHIPS DESTROYED");
+        document.querySelector(".modal-content").innerHTML = "GAME OVER! ALL ALIEN SHIPS DESTROYED";
+        toggleModal();
     }
 }
+
