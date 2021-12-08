@@ -27,71 +27,57 @@ const scoreContainer = document.querySelectorAll(".score");
 //score is reduced by the appropriate number for the alien ship and score is displayed in the alien ship container
 
             if (randomNumber === 14) {
-                console.log("Mothership");
-                console.log(motherShip.reduceScore());
+                motherShip.reduceScore();
                 scoreContainer14.innerHTML = motherShip.showScore();
-                console.log(motherShip.endGame());
+                motherShip.endGame();
             } else if (randomNumber === 1) {
-                console.log("Defence ship 1");
-                console.log(defenceShip1.reduceScore());
+                defenceShip1.reduceScore();
                 scoreContainer1.innerHTML = defenceShip1.showScore();
                 allShipsZero();
             } else if (randomNumber === 2) {
-                console.log("Defence ship 2");
-                console.log(defenceShip2.reduceScore());
+                defenceShip2.reduceScore();
                 scoreContainer2.innerHTML = defenceShip2.showScore();
                 allShipsZero();
             } else if (randomNumber === 3) {
-                console.log("Defence ship 3");
-                console.log(defenceShip3.reduceScore());
+                defenceShip3.reduceScore();
                 scoreContainer3.innerHTML = defenceShip3.showScore();
                 allShipsZero();
             } else if (randomNumber === 4) {
-                console.log("Defence ship 4");
-                console.log(defenceShip4.reduceScore());
+                defenceShip4.reduceScore();
                 scoreContainer4.innerHTML = defenceShip4.showScore();
                 allShipsZero();
             } else if (randomNumber === 5) {
-                console.log("Defence ship 5");
-                console.log(defenceShip5.reduceScore());
+                defenceShip5.reduceScore();
                 scoreContainer5.innerHTML = defenceShip5.showScore();
             } else if (randomNumber === 6) {
-                console.log("Attack ship 1");
-                console.log(attackShip1.reduceScore());
+               attackShip1.reduceScore();
                 scoreContainer6.innerHTML = attackShip1.showScore();
                 allShipsZero();
             } else if (randomNumber === 7) {
-                console.log("Attack ship 2");
-                console.log(attackShip2.reduceScore());
+                attackShip2.reduceScore();
                 scoreContainer7.innerHTML = attackShip2.showScore();
                 allShipsZero();
             } else if (randomNumber === 8) {
-                console.log("Attack ship 3");
-                console.log(attackShip3.reduceScore());
+                attackShip3.reduceScore();
                 scoreContainer8.innerHTML = attackShip3.showScore();
                 allShipsZero();
             } else if (randomNumber === 9) {
-                console.log("Attack ship 4");
-                console.log(attackShip4.reduceScore());
+                attackShip4.reduceScore();
                 scoreContainer9.innerHTML = attackShip4.showScore();
                 allShipsZero();
             } else if (randomNumber === 10) {
-                console.log("Attack ship 5");
-                console.log(attackShip5.reduceScore());
+                attackShip5.reduceScore();
                 scoreContainer10.innerHTML = attackShip5.showScore();
                 allShipsZero();
             } else if (randomNumber === 11) {
-                console.log("Attack ship 6");
-                console.log(attackShip6.reduceScore());
+                attackShip6.reduceScore();
                 scoreContainer11.innerHTML = attackShip6.showScore();
             } else if (randomNumber === 12) {
-                console.log("Attack ship 7");
-                console.log(attackShip7.reduceScore());
+               attackShip7.reduceScore();
                 scoreContainer12.innerHTML = attackShip7.showScore();
                 allShipsZero();
             } else if (randomNumber === 13) {
-                console.log("Attack ship 8");
-                console.log(attackShip8.reduceScore());
+               attackShip8.reduceScore();
                 scoreContainer13.innerHTML = attackShip8.showScore();
                 allShipsZero();
             }  
@@ -140,8 +126,9 @@ class AttackShip extends Alien {
 }
 
 class MotherShip extends Alien {
-    constructor(score, minusPoints) {
-        super(score, minusPoints)      
+    constructor(score, minusPoints, name) {
+        super(score, minusPoints)    
+            this.name = name;   
     }
     endGame() {
         if(this.score <= 0) {
@@ -153,7 +140,7 @@ class MotherShip extends Alien {
  
 //set up new instances of the class
 
-const motherShip = new MotherShip ( 100, 9);
+const motherShip = new MotherShip ( 100, 9, "motherShip");
 const defenceShip1 = new DefenceShip (80, 10, "defenceShip1");
 const defenceShip2 = new DefenceShip (80, 10, "defenceShip2");
 const defenceShip3 = new DefenceShip (80, 10, "defenceShip3");
