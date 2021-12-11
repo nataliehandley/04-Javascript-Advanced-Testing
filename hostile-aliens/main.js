@@ -91,18 +91,12 @@ class Alien {
         this.minusPoints = minusPoints;
     }
     reduceScore() {
-        if(this.score > 0) {
-        return (this.score -= this.minusPoints)
-    } else {
-        return this.score = 0
-
-        // if (this.score <= 0) {
-        //     return (this.score === 0)
-        // } else {
-        //     return this.score -= this.minusPoints
-        // }
-    }
-    }   
+        this.score -=
+        this.minusPoints;
+            if(this.score <= 0)
+        this.score = 0;
+            return this.score
+    }  
     showScore() {
            return `<h2>${this.score}</h2>`
         ;
